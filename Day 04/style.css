@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.first, .second {
+  height: 100svh;
+  background-color: crimson;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.first h1:hover, .second h1:hover {
+  scale: 1.2;
+  color: yellowgreen;
+}
+
+.second {
+  background-color: royalblue;
+  color: white;
+}
+.second h1:hover {
+  scale: 1.2;
+  color: yellow;
+}/*# sourceMappingURL=style.css.map */

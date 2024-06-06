@@ -2,12 +2,58 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
-@import "_partials.scss";
+
+
+// this is all the snippets
+@mixin flexbox($-direction, $-justify-content, $-align-items) {
+    display: flex;
+    flex-direction: $-direction;
+    justify-content: $-justify-content;
+    align-items: $-align-items;
+  }
+
+
+  @mixin button($-bg-color, $-color, $-hover-bg-color, $-hover-font-color) {
+    background-color: $-bg-color;
+    padding: 0.4rem 2vw;
+    color: $-color;
+    font-size: 20px;
+    font-weight: 500;
+    position: relative;
+    border-radius: 8px;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      background: $-hover-bg-color;
+      height: 0%;
+      transition: 0.8s;
+      z-index: -1;
+      bottom: 0;
+      left: 0;
+      border-radius: 50% 50% 0 0;
+      transition: height 0.6s linear;
+      background-clip: content-box;
+    }
+  
+    &:hover::before {
+      height: 180%;
+    }
+    &:hover {
+      cursor: pointer;
+      color: $-hover-font-color;
+    }
+  }
+
+
+
+// @import "_partials.scss";
 
 header{
-    background-color: rgba(0, 0, 0, 0.733);
+    background-color: rgba(0, 0, 0, 0.637);
     position: fixed;
     width: 100%;
     display: flex;
@@ -42,10 +88,113 @@ header{
 
 main{
     height: 100svh;
-    background-image: url(./assets/background\ image.jpg);
+    text-align: center;
+    background-image:url(./assets/background\ image.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center;
-    // @include flexbox(column,center,center);
-   color: red;
+    @include flexbox(column,center,center);
+   padding: 20%;
+   p:nth-child(1){
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: white;
+    span{
+        color: royalblue;
+    }
+   }
+   p:nth-child(2){
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: white;
+    margin: 2rem 3rem;
+   }
+   button{
+    background-color: none;
+    text-decoration: none;
+    border: none;
+    z-index: 1;
+    @include button(red, white, rgb(240, 131, 29), white);
+    overflow: hidden;
+    min-height: 3rem;
+     }
+}
+
+footer{
+  .main_footer{ 
+    width: 100%; 
+    height: 350px; 
+    display: grid;
+ grid-template-columns: 1fr 1fr 1fr;
+    .first{ 
+        font-size: 20px; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        ._first_content{ 
+            width: 70%; 
+            height: 70%; 
+            margin-top: 50px; 
+            background-color:color(from color srgb r g b); 
+            .logo{
+              display: flex;
+              align-items: center;
+              margin: 1rem 0;
+            i{ 
+                font-size: 40px; 
+                margin-right: 20px; 
+            } 
+            p{ 
+                font-size: 30px; 
+                font-weight: bold;
+            } 
+          }
+            #icon{ 
+                margin-right: 20px; 
+            } 
+        } 
+    } 
+    .second{ 
+        display: flex; 
+        align-items: center; 
+        grid-template-columns: auto auto auto; 
+        justify-content: space-around; 
+ 
+        .d321{ 
+            display: grid; 
+            grid-template-columns: auto auto auto; 
+            width: 70%; 
+            height: 70%; 
+ 
+            .pt{ 
+                opacity: 0.6; 
+            } 
+        } 
+     
+    } 
+    .third{  
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+ 
+        .d331{ 
+ 
+            width: 70%; 
+            height: 70%; 
+ 
+            #i3{ 
+                font-size: 30px; 
+                margin-right: 30px; 
+                color: white; 
+                background-color: black; 
+            } 
+        } 
+     
+    } 
+} 
+.copyright{ 
+    text-align: center; 
+    opacity: 0.7; 
+    margin-left: -40px; 
+}
 }

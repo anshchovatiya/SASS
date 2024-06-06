@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import "partials";
+
+.first {
+    height: 100svh;
+    background-color: crimson;
+    @include flexbox(row, center, center);
+    color: white;
+    h1 {
+        &:hover {
+            scale: 1.2;
+            color: yellowgreen;
+        }
+    }
+}
+.second {
+    @extend .first;
+    background-color: royalblue;
+    color: white;
+    h1 {
+        &:hover {
+            scale: 1.2;
+            color: yellow;
+        }
+    }
+}
